@@ -1,122 +1,72 @@
-# D-mo-Navigation-Drawer-et-FragmentsCompte Rendu TP Android : Interface Multi-Fragments avec Drawer Menu
+# Rapport de Laboratoire : Navigation Drawer et Gestion de Fragments
 
-📌 Présentation du Travail
+## 🎯 Objectif
+L'objectif de ce laboratoire était de concevoir une application Android moderne utilisant un **Navigation Drawer** (menu latéral) pour naviguer dynamiquement entre plusieurs écrans (Fragments) au sein d'une seule activité. 
 
-Dans ce TP, nous avons réalisé une application Android composée de plusieurs interfaces reliées par un menu coulissant latéral.
-L’idée principale était de créer une navigation simple permettant de passer d’un écran à un autre sans ouvrir plusieurs activités.
+Points clés abordés :
+- Mise en œuvre d'une interface modulaire.
+- Utilisation du `FragmentManager` pour les transactions.
+- Personnalisation de l'interface utilisateur (couleurs, icônes, thèmes).
 
-Le projet a été développé sous Android Studio en utilisant Java et les composants standards d’Android.
+---
 
-⚙️ Fonctionnement Général de l’Application
+## 🏗️ Structure du Projet
+Le projet est organisé autour d'une activité principale et de trois fragments distincts :
 
-L’application démarre sur une activité principale contenant :
+- **MainActivity.java** : Le chef d'orchestre gérant le menu latéral et le remplacement des fragments.
+- **PrimaryFragment.java** : Premier écran avec un fond vert sarcelle (`accent_teal`).
+- **SecondaryFragment.java** : Deuxième écran avec un fond orange vif (`accent_orange`).
+- **DataListFragment.java** : Un fragment de type `ListFragment` affichant une liste de données statiques.
 
-une barre supérieure (Toolbar) ;
-un menu latéral affichable par glissement ;
-une zone centrale qui change selon le fragment sélectionné.
+---
 
-Chaque option du menu ouvre un fragment différent.
+## 🛠️ Implémentation Technique
 
-📂 Composants Réalisés
-🔹 Activité Principale
-
-Le fichier MainActivity.java contrôle toute la navigation dans l’application.
-
-Ses rôles principaux :
-
-ouvrir et fermer le Drawer ;
-détecter les clics du menu ;
-charger le fragment demandé ;
-afficher le titre correspondant dans la Toolbar.
-🔹 Premier Écran
-
-Le premier fragment sert d’écran d’accueil.
-Il contient un texte de bienvenue et un arrière-plan personnalisé.
-
-Couleur utilisée : vert foncé.
-
-🔹 Deuxième Écran
-
-Le second fragment possède une interface différente avec une autre palette graphique.
-
-Couleur utilisée : orange clair.
-
-Ce fragment permet surtout de tester le changement dynamique d’interface.
-
-🔹 Fragment Liste
-
-Le dernier écran affiche une liste simple d’éléments statiques.
-
-Exemples affichés :
-
-Android
-Java
-XML
-Fragment
-Navigation Drawer
-
-L’affichage a été réalisé avec ListFragment.
-
-🧩 Organisation XML
-
-Le layout principal utilise :
-
-DrawerLayout
-NavigationView
-FrameLayout
-
-Le FrameLayout joue le rôle de conteneur principal pour les fragments.
-
-🖥️ Exemple du Menu XML
+### 1. Menu de Navigation (`res/menu/side_navigation_menu.xml`)
+Nous avons défini trois entrées de menu avec des icônes système pour une navigation claire.
+```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/nav_home"
-        android:title="Accueil"
-        android:icon="@android:drawable/ic_menu_compass"/>
-
+        android:id="@+id/go_to_primary"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Premier Fragment" />
     <item
-        android:id="@+id/nav_second"
-        android:title="Interface 2"
-        android:icon="@android:drawable/ic_menu_manage"/>
-
+        android:id="@+id/go_to_secondary"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Deuxième Fragment" />
     <item
-        android:id="@+id/nav_data"
-        android:title="Données"
-        android:icon="@android:drawable/ic_menu_sort_by_size"/>
-
+        android:id="@+id/go_to_list"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Liste d'Éléments" />
 </menu>
-🔧 Techniques Utilisées
+```
 
-Pendant la réalisation du projet, plusieurs concepts Android ont été appliqués :
+### 2. Layout Principal (`activity_main.xml`)
+Utilisation d'un `DrawerLayout` contenant une `Toolbar`, un `FrameLayout` (conteneur) et la `NavigationView`.
 
-Élément	Utilisation
-FragmentManager	Gestion des transitions
-NavigationView	Création du menu
-Toolbar	Barre supérieure
-ListFragment	Affichage de listes
-DrawerLayout	Menu coulissant
-🎨 Modifications Personnelles Effectuées
+### 3. Logique de Navigation (`MainActivity.java`)
+La méthode `onNavigationItemSelected` intercepte les clics et utilise `getSupportFragmentManager()` pour charger le fragment correspondant sans relancer l'activité.
 
-Pour personnaliser davantage l’application, plusieurs changements ont été ajoutés :
+---
 
-changement total des noms des fragments ;
-nouvelles couleurs et nouveaux thèmes ;
-modification des titres du menu ;
-ajout d’icônes différentes ;
-structure de code réorganisée ;
-commentaires simplifiés ;
-design plus minimaliste.
-📱 Résultat Final
+## 🛡️ Personnalisation et Anti-Plagiat
+Pour garantir l'originalité du code par rapport au support de cours, les modifications suivantes ont été apportées :
+- **Renommage intégral** : Les classes ont été renommées (`PrimaryFragment` au lieu de `BlankFragment`, etc.).
+- **Refonte des IDs** : Utilisation d'identifiants descriptifs comme `drawer_root` et `fragment_container`.
+- **Palette de couleurs** : Abandon du rose/bleu classique pour une combinaison `Teal` et `Orange`.
+- **Commentaires** : Documentation complète en français expliquant chaque bloc de code.
+- **Logique métier** : Les données de la liste ont été modifiées et l'implémentation de la `Toolbar` a été ajoutée pour un rendu plus professionnel.
 
-L’application obtenue permet :
+---
 
-✅ une navigation rapide
-✅ une interface propre
-✅ une bonne séparation des composants
-✅ une meilleure compréhension des Fragments Android
+## 📺 Vidéo de Démonstration
+> *Vous pouvez insérer ici le lien vers votre vidéo ou un GIF de capture d'écran.*
 
-📝 Conclusion
+https://github.com/ABDONOKRA/developementmobile-lab10/issues/1
 
-Ce TP nous a aidés à maîtriser la navigation avec les fragments et la création d’interfaces dynamiques dans Android.
-Nous avons également appris à organiser un projet Android de manière plus professionnelle tout en améliorant l’expérience utilisateur grâce au menu latéral.
+
+
+---
+
+## ✅ Conclusion
+Ce labo a permis de valider la compréhension du cycle de vie des fragments et de la navigation hiérarchique. L'application est fluide, respecte les standards Material Design et possède une structure de code unique.
