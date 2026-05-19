@@ -57,16 +57,6 @@ Pour garantir l'originalité du code par rapport au support de cours, les modifi
 - **Commentaires** : Documentation complète en français expliquant chaque bloc de code.
 - **Logique métier** : Les données de la liste ont été modifiées et l'implémentation de la `Toolbar` a été ajoutée pour un rendu plus professionnel.
 
----
-
-## 📺 Vidéo de Démonstration
-> *Vous pouvez insérer ici le lien vers votre vidéo ou un GIF de capture d'écran.*
-
-https://github.com/ABDONOKRA/developementmobile-lab10/issues/1
-
-
-
----
 
 ## ✅ Conclusion
 Ce labo a permis de valider la compréhension du cycle de vie des fragments et de la navigation hiérarchique. L'application est fluide, respecte les standards Material Design et possède une structure de code unique.
